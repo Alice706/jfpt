@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <script src='js/jquery.min.js'></script>
+    <script src='js/jquery.scrollBanner.js'></script>
+    <script src="js/jquery.pagination.min.js"></script>
+    <style>
+    /*banner*/
+
+    .carsoual {
+        width: 100%;
+    }
+
+    .carsoual img {
+        width: 100%;
+    }
+    /*活动列表*/
+
+    .active_list {
+        width: 100%;
+    }
+
+
+    .list_nav a {
+        font-size: 14px;
+        color: #4a4a4a;
+        font-weight: 700;
+        display: block;
+        padding: 15px 29px;
+        border-radius: 6px;
+        margin: 32px 40px 33px 0;
+    }
+
+    .choic_act a {
+        color: #fff;
+        background-color: #21dccd;
+    }
+
+    .list_detial li {
+        width: 376px;
+        margin: 0 48px 40px 0;
+        background-color: #fdfcfc;
+        position: relative;
+        border: 1px solid #f2f2f2;
+        border-radius: 6px;
+        box-sizing: border-box;
+        transition: all .4s;
+    }
+
+    .list_detial li:nth-child(3n) {
+        margin-right: 0px;
+    }
+
+    .list_detial li:hover {
+        transform: translateY(-10px);
+        box-shadow: 0px 0px 15px 1px #dde0e1;
+    }
+
+    .list_detial li a {
+        display: block;
+        color: #4a4a4a;
+    }
+
+    .list_detial a>img {
+        width: 100%;
+    }
+
+    .list_detial li p,
+    .list_detial li h3 {
+        margin: 14px 0 0 12px;
+        font-size: 16px;
+    }
+
+    .list_detial li h3 {
+        width: 322px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .list_detial li p {
+        margin-bottom: 20px;
+    }
+
+    .list_detial img,
+    .list_detial i {
+        display: inline-block;
+        vertical-align: middle;
+        color: #a1a1a1;
+    }
+
+    .list_detial .act_date {
+        letter-spacing: 2px;
+        margin-right: 12px;
+    }
+
+    .list_detial .act_zuan {
+        margin-left: 30px;
+    }
+
+    .list_detial .act_start {
+        position: absolute;
+        background-color: rgba(0, 0, 0, .6);
+        color: #fff;
+        width: 82px;
+        height: 32px;
+        line-height: 32px;
+        border-radius: 15px;
+        text-align: center;
+        left: 10px;
+        top: 158px;
+    }
+
+    .hd_time,
+    .hd_zuan {
+        display: inline-block;
+        width: 26px;
+        height: 21px;
+        vertical-align: middle;
+        background: url(images/sprit.png) no-repeat -130px -14px;
+    }
+
+    .hd_zuan {
+        background: url(images/sprit.png) no-repeat -170px -14px;
+    }
+    /*分页*/
+
+    .ui-pagination-container {
+        height: 34px;
+        line-height: 34px;
+        text-align: center;
+    }
+
+    .ui-pagination-container .ui-pagination-page-item {
+        font-size: 16px;
+        padding: 4px 10px;
+        background: #fff;
+        color: #4a4a4a;
+        margin: 0 3px;
+        text-decoration: none;
+        border: 1px solid #000;
+    }
+
+    .ui-pagination-container .ui-pagination-page-item.active {
+        background: #f1fffe;
+        border: 2px solid #51e4d8;
+        color: #51e4d8;
+        cursor: default;
+        border-radius: 6px;
+    }
+
+    button {
+        display: inline-block;
+        padding: 6px 12px;
+        font-weight: 400;
+        line-height: 1.42857143;
+        text-align: center;
+        vertical-align: middle;
+        cursor: pointer;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        border-color: #28a4c9;
+        color: #fff;
+        background-color: #5bc0de;
+        margin: 20px 20px 0 0;
+    }
+
+    .box {
+        width: 100%;
+        width: 600px;
+        margin: 0 auto 115px;
+    }
+
+    .page {
+        width: 600px;
+    }
+
+    .info {
+        width: 200px;
+        height: 34px;
+        line-height: 34px;
+    }
+    </style>
+</head>
+
+<body>
+    <!-- 头部 -->
+    <div class="jf_nav">
+        <div class="w1224 clearfix">
+            <div class="nav_left">
+                <img src="images/xy_logo.png" alt="">
+                <div class="xy_tit">
+                    <p class='sq'>社区信用积分平台</p>
+                    <p>www.xinyong.com</p>
+                </div>
+            </div>
+            <div class="nav_cen">
+                <ul class='clearfix'>
+                    <li class='fl active_nav choic_fw'><a href="#">首页</a></li>
+                    <li class='fl '><a href="#">积分商城</a></li>
+                    <li class='fl'><a href="#">商家服务</a></li>
+                    <li class='fl'><a href="#">便民租聘</a></li>
+                    <li class='fl'><a href="#">图书预定</a></li>
+                    <li class='fl'><a href="#">志愿者申请</a></li>
+                </ul>
+            </div>
+            <div class="nav_right">
+                <p class='fr'> <a href="#"><i class='head_log'></i>登陆/注册</a></p>
+                <p class='fr'><a href="#"><i class='head_car'></i>购物车</a></p>
+            </div>
+        </div>
+    </div>
+    <!-- banner -->
+    <div class="carsoual">
+        <div id="banner"></div>
+    </div>
+    <!-- 活动列表 -->
+    <div class="active_list">
+        <div class="w1224">
+            <div class="list_nav">
+                <ul class='clearfix'>
+                    <li class='fl choic_act'><a href="#">全部活动</a></li>
+                    <li class='fl'><a href="#">政府活动</a></li>
+                    <li class='fl'><a href="#">中心活动</a></li>
+                    <li class='fl'><a href="#">社区活动</a></li>
+                </ul>
+            </div>
+            <div class="list_detial">
+                <ul class='clearfix'>
+                    <li class='fl'>
+                        <a href="#">
+                            <img src="images/hd2.png" alt="">
+                            <h3>十九大精神进社区</h3>
+                            <p>
+                                <span class='act_day'>
+                                    <span class='hd_time'></span>
+                                    <i class='act_date'>11月3日</i><i class="act_time">14:00</i>
+                                </span>
+                                <span class='act_zuan'>
+                                    <span class='hd_zuan'></span>
+                                    <i class="zuan">+120</i>
+                                </span>
+                            </p>
+                          <span class="act_start">已开始</span>
+                        </a>
+                    </li>
+                    <li class='fl'>
+                        <a href="#">
+                            <img src="images/hd.png" alt="">
+                            <h3>十九大精神进社区</h3>
+                            <p>
+                                <span class='act_day'>
+                                    <span class='hd2_time'></span>
+                                    <i class='act_date'>11月3日</i><i class="act_time">14:00</i>
+                                </span>
+                                <span class='act_zuan'>
+                                    <span class='hd_zuan'></span>
+                                    <i class="zuan">+120</i>
+                                </span>
+                            </p>
+                          <span class="act_start">已开始</span>
+                        </a>
+                    </li>
+                    <li class='fl'>
+                        <a href="#">
+                            <img src="images/hd1.png" alt="">
+                            <h3>十九大精神进社区</h3>
+                            <p>
+                                <span class='act_day'>
+                                    <span class='hd_time'></span>
+                                    <i class='act_date'>11月3日</i><i class="act_time">14:00</i>
+                                </span>
+                                <span class='act_zuan'>
+                                    <span class='hd_zuan'></span>
+                                    <i class="zuan">+120</i>
+                                </span>
+                            </p>
+                          <span class="act_start">已开始</span>
+                        </a>
+                    </li>
+                    <li class='fl'>
+                        <a href="#">
+                            <img src="images/hd1.png" alt="">
+                            <h3>十九大精神进社区</h3>
+                            <p>
+                                <span class='act_day'>
+                                    <span class='hd_time'></span>
+                                    <i class='act_date'>11月3日</i><i class="act_time">14:00</i>
+                                </span>
+                                <span class='act_zuan'>
+                                    <span class='hd_zuan'></span>
+                                    <i class="zuan">+120</i>
+                                </span>
+                            </p>
+                          <span class="act_start">已开始</span>
+                        </a>
+                    </li>
+                    <li class='fl'>
+                        <a href="#">
+                            <img src="images/hd.png" alt="">
+                            <h3>十九大精神进社区</h3>
+                            <p>
+                                <span class='act_day'>
+                                    <span class='hd_time'></span>
+                                    <i class='act_date'>11月3日</i><i class="act_time">14:00</i>
+                                </span>
+                                <span class='act_zuan'>
+                                    <span class='hd_zuan'></span>
+                                    <i class="zuan">+120</i>
+                                </span>
+                            </p>
+                          <span class="act_start">已开始</span>
+                        </a>
+                    </li>
+                    <li class='fl'>
+                        <a href="#">
+                            <img src="images/hd2.png" alt="">
+                            <h3>十九大精神进社区</h3>
+                            <p>
+                                <span class='act_day'>
+                                    <span class='hd_time'></span>
+                                    <i class='act_date'>11月3日</i><i class="act_time">14:00</i>
+                                </span>
+                                <span class='act_zuan'>
+                                    <span class='hd_zuan'></span>
+                                    <i class="zuan">+120</i>
+                                </span>
+                            </p>
+                          <span class="act_start">已开始</span>
+                        </a>
+                    </li>
+                    <li class='fl'>
+                        <a href="#">
+                            <img src="images/hd1.png" alt="">
+                            <h3>十九大精神进社区</h3>
+                            <p>
+                                <span class='act_day'>
+                                    <span class='hd_time'></span>
+                                    <i class='act_date'>11月3日</i><i class="act_time">14:00</i>
+                                </span>
+                                <span class='act_zuan'>
+                                    <span class='hd_zuan'></span>
+                                    <i class="zuan">+120</i>
+                                </span>
+                            </p>
+                          <span class="act_start">已开始</span>
+                        </a>
+                    </li>
+                    <li class='fl'>
+                        <a href="#">
+                            <img src="images/hd.png" alt="">
+                            <h3>十九大精神进社区</h3>
+                            <p>
+                                <span class='act_day'>
+                                    <span class='hd_time'></span>
+                                    <i class='act_date'>11月3日</i><i class="act_time">14:00</i>
+                                </span>
+                                <span class='act_zuan'>
+                                    <span class='hd_zuan'></span>
+                                    <i class="zuan">+120</i>
+                                </span>
+                            </p>
+                          <span class="act_start">已开始</span>
+                        </a>
+                    </li>
+                    <li class='fl'>
+                        <a href="#">
+                            <img src="images/hd.png" alt="">
+                            <h3>十九大精神进社区</h3>
+                            <p>
+                                <span class='act_day'>
+                                    <span class='hd_time'></span>
+                                    <i class='act_date'>11月3日</i><i class="act_time">14:00</i>
+                                </span>
+                                <span class='act_zuan'>
+                                    <span class='hd_zuan'></span>
+                                    <i class="zuan">+120</i>
+                                </span>
+                            </p>
+                          <span class="act_start">已开始</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 分页栏 -->
+    <div class="act_page">
+        <div class="box clearfix">
+            <div id="pagination2" class="page fl"></div>
+        </div>
+    </div>
+    <!-- 底部 -->
+    <div class="jf_footer">
+        <div class="w1224 clearfix">
+            <div class="footer_fl">
+                <dl class='fl'>
+                    <dt>千声科技</dt>
+                    <dd><a href="#">智慧家园</a></dd>
+                    <dd><a href="#">智慧社区</a></dd>
+                    <dd><a href="#">智慧管家</a></dd>
+                </dl>
+                <dl class='fl'>
+                    <dt>旗下产品</dt>
+                    <dd><a href="#">火箭兔</a></dd>
+                    <dd><a href="#">璞飞科技</a></dd>
+                </dl>
+                <dl class='fl'>
+                    <dt>交流合作</dt>
+                    <dd><a href="#">联系我们</a></dd>
+                    <dd><a href="#">合作咨询</a></dd>
+                </dl>
+                <dl class='fl'>
+                    <dt>关于我们</dt>
+                    <dd><a href="#">关于我们</a></dd>
+                    <dd><a href="#">加入我们</a></dd>
+                </dl>
+            </div>
+            <div class="footer_fr">
+                <img src="images/xy_logo.png" alt="">
+                <div class="xy_tit">
+                    <p class='sq'>社区信用积分平台</p>
+                    <p>www.xinyong.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>上海千声集团版权所有<span>备案号：沪ICP备14023477号</span></p>
+        </div>
+    </div>
+    <script src='js/header.js'></script>
+    <!-- 轮播图 -->
+    <script type="text/javascript">
+    $("#banner").scrollBanner({
+        images: [
+            { src: "images/home_ban.png", title: "", href: "#" },
+            { src: "images/home_ban.png", title: "", href: "#" },
+            { src: "images/home_ban.png", title: "", href: "#" },
+            { src: "images/home_ban.png", title: "", href: "#" }
+        ],
+        scrollTime: 3000,
+        bannerHeight: "auto",
+        iconColor: "transparent",
+        iconHoverColor: "#FFFFFF",
+        iconPosition: "center"
+    });
+    </script>
+    <script>
+    // 活动导航
+    $('.list_nav li').click(function() {
+        $(this).addClass('choic_act').siblings().removeClass('choic_act')
+    })
+
+    // 分页
+    $(function() {
+
+        $("#pagination2").pagination({
+            currentPage: 1,
+            totalPage: 12,
+            isShow: false,
+            count: 6,
+            prevPageText: "< 上一页",
+            nextPageText: "下一页 >",
+            callback: function(current) {
+                $("#current2").text(current)
+            }
+        });
+
+        $("#getPage").on("click", function() {
+            var info = $("#pagination3").pagination("getPage");
+            alert("当前页数：" + info.current + ",总页数：" + info.total);
+        });
+
+        $("#setPage").on("click", function() {
+            $("#pagination3").pagination("setPage", 1, 10);
+        });
+    });
+    </script>
+</body>
+
+</html>

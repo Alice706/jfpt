@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>购物清单</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+</head>
+<style>
+.shop_list {
+    padding: 32px 0 96px 0;
+    font-size: 14px;
+    color: #a2a2a2;
+}
+
+.shop_list a {
+    font-size: 14px;
+    color: #a2a2a2;
+    /*margin-bottom: 54px;*/
+}
+
+.qd_proc {
+    width: 550px;
+    margin: 0px auto 70px;
+}
+
+.qd_proc li {
+    margin-right: 190px;
+}
+
+.qd_proc li:last-child {
+
+    margin-right: 0;
+}
+
+.qd_proc li:last-child:after {
+    width: 0;
+    height: 0;
+}
+
+.qd_proc li:after {
+    content: '';
+    width: 196px;
+    height: 2px;
+    background-color: #bfbdbd;
+    position: absolute;
+    right: -190px;
+    top: 50%;
+    margin-top: -14px;
+}
+
+.qd_proc span {
+    display: block;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #bfbdbd;
+    border-radius: 50%;
+    text-align: center;
+    box-sizing: border-box;
+    margin-bottom: 8px;
+}
+
+.list_choic span {
+    background-color: #21dccd;
+    border: 2px solid #21dccd;
+}
+
+.list_choic p {
+    color: #21dccd;
+}
+
+.qd_proc i {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    margin-top: 8px;
+}
+
+.gw_list {
+    background: url(images/sprit.png) no-repeat -7px -225px;
+}
+
+.sure_list {
+    background: url(images/sprit.png) no-repeat -50px -225px;
+}
+
+.comp_list {
+    background: url(images/sprit.png) no-repeat -87px -222px;
+}
+
+
+.qd_tit {
+    font-size: 18px;
+    color: #4a4a4a;
+    font-weight: 700;
+    border-bottom: 2px solid #eaeaea;
+    padding: 0 27px 14px 27px;
+}
+
+.qd_tit input {
+    margin-right: 4px;
+}
+
+.qd1 {
+    margin-right: 164px;
+}
+
+.qd2 {
+    margin-right: 310px;
+}
+
+.qd3 {
+    margin-right: 226px;
+}
+
+.qd4 {
+    margin-right: 208px;
+}
+
+.qd_goods li {
+    border-bottom: 1px solid #f8f8f8;
+    padding: 22px 32px 22px 27px;
+}
+
+.goods,
+.good_num,
+.good_num a,
+.good_num i {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.qd_goods .goods {
+    width: 544px;
+}
+
+.goods input {
+    top: 35px;
+}
+
+.goods img {
+    margin: 0 10px 0 50px;
+}
+
+.goods h3 {
+    top: 24px;
+    color: #4a4a4a;
+    font-size: 14px;
+}
+
+.goods p {
+    bottom: 24px;
+    color: #a1a1a1;
+}
+
+.good_num a {
+    width: 17px;
+    height: 17px;
+    line-height: 17px;
+    text-align: center;
+    border: 1px solid #d3d3d3;
+    background-color: #e8e7e7;
+    color: #4a4a4a;
+    font-size: 20px;
+}
+
+.good_num i {
+    color: #e71b55;
+    font-weight: 700;
+    margin: 0 4px;
+    font-size: 18px;
+}
+
+.good_num {
+    width: 200px;
+}
+
+.g_pirce {
+    width: 308px;
+    position: relative;
+    left: 96px;
+    color: #4a4a4a;
+    font-size: 14px;
+    margin-right: 66px;
+}
+
+.g_del {
+    color: #5291de;
+    font-size: 14px;
+    cursor: pointer;
+    position: relative;
+    z-index: 99;
+}
+
+.g_sum {
+    font-size: 14px;
+}
+
+.s_zj {
+    color: #000;
+    margin-top: 22px;
+}
+
+.s_zj i,
+.s_zj span {
+    color: #e71b55;
+    font-weight: 700;
+}
+
+.s_zj i {
+    font-size: 16px;
+}
+
+.s_zj span {
+    font-size: 34px;
+}
+
+.g_sum button {
+    width: 177px;
+    height: 48px;
+    background-color: #f2658d;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 6px;
+    margin-top: 28px;
+    cursor: pointer;
+}
+
+.zz a {
+    width: 177px;
+    text-align: center;
+    margin-top: 4px;
+    display: block;
+}
+
+.zz a:before,
+.zz a:after {
+    content: '';
+    width: 8px;
+    height: 2px;
+    background-color: #a1a1a1;
+    position: absolute;
+    top: 50%;
+    margin-top: -1px;
+}
+
+.zz a:before {
+    left: 45px;
+}
+
+.zz a:after {
+    right: 45px;
+}
+
+.goods a {
+    display: block;
+}
+</style>
+
+<body>
+    <!-- 头部 -->
+    <div class="jf_nav">
+        <div class="w1224 clearfix">
+            <div class="nav_left">
+                <img src="images/xy_logo.png" alt="">
+                <div class="xy_tit">
+                    <p class='sq'>社区信用积分平台</p>
+                    <p>www.xinyong.com</p>
+                </div>
+            </div>
+            <div class="nav_cen">
+                <ul class='clearfix'>
+                    <li class='fl active_nav choic_fw'><a href="plat_home.html">首页</a></li>
+                    <li class='fl '><a href="jf_market.html">积分商城</a></li>
+                    <li class='fl'><a href="hd_djq.html">商家服务</a></li>
+                    <li class='fl'><a href="#">便民租聘</a></li>
+                    <li class='fl'><a href="#">图书预定</a></li>
+                    <li class='fl'><a href="#">志愿者申请</a></li>
+                </ul>
+            </div>
+            <div class="nav_right">
+                <p class='fr'> <a href="plat_login.html"><i class='head_log'></i>登陆/注册</a></p>
+                <p class='fr'><a href="#"><i class='head_car'></i>购物车</a></p>
+            </div>
+        </div>
+    </div>
+    <!-- 购物清单 -->
+    <div class="shop_list w1224">
+        <p><a href="#">积分商城 ></a> <a href="#">购物车</a></p>
+        <div class="qd_proc">
+            <ul class='clearfix'>
+                <li class='fl pr list_choic'>
+                    <span><i class='gw_list'></i></span>
+                    <p>购物清单</p>
+                </li>
+                <li class='fl pr'>
+                    <span><i class='sure_list'></i></span>
+                    <p>确认订单</p>
+                </li>
+                <li class='fl pr'>
+                    <span><i class='comp_list'></i></span>
+                    <p>完成支付</p>
+                </li>
+            </ul>
+        </div>
+        <div class="qd_list clearfix">
+            <div class="qd_tit">
+                <ul class='clearfix'>
+                    <li class="fl qd1">
+                        <input type="checkbox" id='allCheck'>全选</li>
+                    <li class="fl qd2">商品</li>
+                    <li class="fl qd3">数量</li>
+                    <li class="fl qd4">单价（元）</li>
+                    <li class="fl 1d5">操作</li>
+                </ul>
+            </div>
+            <div class="qd_goods">
+                <ul>
+                    <li>
+                        <div class="goods pr">
+                            <input type="checkbox" class='pa' name='check'>
+                            <a href="#">
+                                <img src="images/guqd.png" alt="">
+                            <h3 class='db pa'>Knot Clutch挽结牛皮手包（灰青色）</h3>
+                            <p class='db pa'>本商品不参与7天免退换服务</p>
+                           </a>
+                        </div>
+                        <div class="good_num pr">
+                            <a href="javascipt:void(0)" class='g_redu'>-</a>
+                            <i>1</i>
+                            <a href="javascript:void(0)" class='g_plug'>+</a>
+                        </div>
+                        <span class="g_pirce db">1</span>
+                        <i class='g_del db'>删除</i>
+                    </li>
+                    <li>
+                        <div class="goods pr">
+                            <input type="checkbox" class='pa' name='check'>
+                            <a href="#">
+                                <img src="images/guqd.png" alt="">
+                            <h3 class='db pa'>Knot Clutch挽结牛皮手包（灰青色）</h3>
+                            <p class='db pa'>本商品不参与7天免退换服务</p>
+                           </a>
+                        </div>
+                        <div class="good_num pr">
+                            <a href="javascipt:void(0)" class='g_redu'>-</a>
+                            <i>1</i>
+                            <a href="javascript:void(0)" class='g_plug'>+</a>
+                        </div>
+                        <span class="g_pirce db">10</span>
+                        <i class='g_del db'>删除</i>
+                    </li>
+                    <li>
+                        <div class="goods pr">
+                            <input type="checkbox" class='pa' name='check'>
+                            <a href="#">
+                                <img src="images/guqd.png" alt="">
+                            <h3 class='db pa'>Knot Clutch挽结牛皮手包（灰青色）</h3>
+                            <p class='db pa'>本商品不参与7天免退换服务</p>
+                           </a>
+                        </div>
+                        <div class="good_num pr">
+                            <a href="javascipt:void(0)" class='g_redu'>-</a>
+                            <i>1</i>
+                            <a href="javascript:void(0)" class='g_plug'>+</a>
+                        </div>
+                        <span class="g_pirce db">20</span>
+                        <i class='g_del db'>删除</i>
+                    </li>
+                </ul>
+            </div>
+            <div class="g_sum fr">
+                <p class='s_zj'>商品总价/ <i>￥</i><span class='g_money'>0</span></p>
+                <button>立即结算</button>
+                <p class='zz pr'><a href="#">再去转转</a></p>
+            </div>
+        </div>
+    </div>
+    <!-- 底部 -->
+    <div class="jf_footer">
+        <div class="w1224 clearfix">
+            <div class="footer_fl">
+                <dl class='fl'>
+                    <dt>千声科技</dt>
+                    <dd><a href="#">智慧家园</a></dd>
+                    <dd><a href="#">智慧社区</a></dd>
+                    <dd><a href="#">智慧管家</a></dd>
+                </dl>
+                <dl class='fl'>
+                    <dt>旗下产品</dt>
+                    <dd><a href="#">火箭兔</a></dd>
+                    <dd><a href="#">璞飞科技</a></dd>
+                </dl>
+                <dl class='fl'>
+                    <dt>交流合作</dt>
+                    <dd><a href="#">联系我们</a></dd>
+                    <dd><a href="#">合作咨询</a></dd>
+                </dl>
+                <dl class='fl'>
+                    <dt>关于我们</dt>
+                    <dd><a href="#">关于我们</a></dd>
+                    <dd><a href="#">加入我们</a></dd>
+                </dl>
+            </div>
+            <div class="footer_fr">
+                <img src="images/xy_logo.png" alt="">
+                <div class="xy_tit">
+                    <p class='sq'>社区信用积分平台</p>
+                    <p>www.xinyong.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>上海千声集团版权所有<span>备案号：沪ICP备14023477号</span></p>
+        </div>
+    </div>
+    <script src='js/jquery.min.js'></script>
+    <script src='js/header.js'></script>
+    <script>
+    //全选框  
+    $("#allCheck").click(function() {
+        $("input[name='check']").prop("checked", this.checked);
+        if ($(this).prop('checked')) {
+            SumMoney()
+        } else {
+            $('.g_money').text(0)
+        }
+    })
+    //反选框 
+    $("input[name='check']").change(function() {
+        var check = $("input[name='check']").length;
+        var checked = $("input[name='check']:checked").length;
+        if (check === checked) {
+            $("#allCheck").prop("checked", true);
+        } else {
+            $("#allCheck").prop("checked", false);
+        }
+    })
+    // 添加减少数量 
+    // 获取单价，将单价存储在标签上，方便后面取用
+    for (var i = 0; i < $('.qd_goods li').length; i++) {
+        var price = parseInt($('.qd_goods li').eq(i).find('.g_pirce').text());
+        $('.qd_goods li').eq(i).find('.g_pirce').attr('price', price)
+    }
+    // 加
+    $('.g_plug').click(function() {
+        var num = parseInt($(this).siblings('i').text()) + 1;
+        $(this).siblings('i').text(num)
+        var nowPrice = parseInt($(this).parent().siblings('.g_pirce').attr('price'));
+        $(this).parent().siblings('span').text(nowPrice * num);
+        if ($(this).parent().siblings('.goods').find('input').prop('checked')) {
+            SumMoney()
+        }
+    })
+    // 减
+    $('.g_redu').click(function() {
+        var num = parseInt($(this).siblings('i').text()) - 1;
+        if (num < 1) {
+            num = 1;
+        }
+        $(this).siblings('i').text(num)
+        var nowPrice = parseInt($(this).parent().siblings('.g_pirce').attr('price'));
+        $(this).parent().siblings('span').text(nowPrice * num);
+        if ($(this).parent().siblings('.goods').find('input').prop('checked')) {
+            SumMoney()
+        }
+    })
+
+    // 计算总价
+
+    function SumMoney() {
+        var sum = 0;
+        for (var i = 0; i < $('.qd_goods li').length; i++) {
+            if ($('.qd_goods li').eq(i).find('.goods input').prop('checked')) {
+                var price = parseInt($('.qd_goods li').eq(i).find('.g_pirce').text());
+                sum += price;
+            }
+        }
+
+        $('.g_money').text(sum)
+    }
+   
+    // 删除按钮
+    $('.g_del').click(function() {
+         //这里需要一个弹窗
+            $(this).parent().remove();
+            SumMoney()
+    })
+    // 单个按钮点击事件
+    $('li').on('click', 'input', function() {
+        if ($(this).prop('checked')) {
+            SumMoney()
+        } else {
+            SumMoney()
+        }
+    })
+    </script>
+</body>
+
+</html>

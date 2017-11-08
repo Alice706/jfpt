@@ -1,0 +1,63 @@
+  /*通用样式*/
+  html,body,div,p,h1,h2,h3,h4,h5,h6,ul,li,ol,dl,dt,dd,input,button,span {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    font-family:"Microsoft YaHei",Arial,Helvetica,sans-serif,"simsun";
+  }
+  i {
+    font-style:normal;
+  }
+  i,span {
+    display: inline-block;
+  }
+  a {
+    text-decoration: none;
+  }
+  li {
+    list-style: none;
+  }
+  button,input {
+    outline: none;
+    border:none;
+  }
+  h1,h2,h3,h4,h5,h6 {
+    font-weight: 400;
+    font-style: normal;
+  }
+  html,body {
+    min-width: 1224px;
+  }
+  .fl {
+      float: left;
+  }
+
+  .fr {
+      float: right;
+  }
+  .clearfix:after {
+    content:'';
+    line-height: 0;
+    height: 0;
+    display:block;
+    visibility: hidden;
+    clear:both;
+  }
+  .w1224 {
+    width: 1224px;
+    margin: 0 auto;
+  }
+  .db {
+    display: inline-block;
+  }
+  .pr {
+    position: relative;
+  }
+  .pa {
+    position: absolute;
+  }
+  .pf {
+    position: fixed;
+  }
+

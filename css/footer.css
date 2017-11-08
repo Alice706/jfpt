@@ -1,0 +1,78 @@
+  /*底部*/
+
+    .jf_footer {
+        background-color: #313435;
+        height: 202px;
+        min-width: 1224px
+    }
+
+    .jf_footer .w1224 {
+        position: relative;
+        height: 100%;
+    }
+
+    .footer_fr {
+        width: 50%;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        text-align: center;
+        height: 56px;
+        margin-top: -28px;
+    }
+
+    .footer_fr img {
+        vertical-align: middle;
+        margin-right: 32px;
+    }
+
+    .footer_fr .xy_tit {
+        display: inline-block;
+        vertical-align: middle;
+        font-weight: 700;
+        color: #e5e5e5;
+    }
+
+    .footer_fr .sq {
+        font-size: 26px;
+    }
+
+    .footer_fl {
+        top: 38px;
+        position: absolute;
+        left: 0;
+        width: 50%;
+    }
+
+    .footer_fl dl {
+        font-size: 14px;
+        margin-right: 70px;
+    }
+
+    .footer_fl a {
+        color: #929292;
+    }
+
+    .footer_fl dt {
+        font: 16px;
+        color: #fff;
+        font-weight: 700;
+        margin-bottom: 30px;
+    }
+
+    .footer_fl dd {
+        margin-bottom: 12px;
+    }
+    .copyright {
+        color:#929292;
+        background-color: #000;
+        padding:22px 0;
+        font-size:14px;
+
+    }
+    .copyright p {
+        text-align: center;
+    }
+    .copyright span {
+        margin-left: 46px;
+    }

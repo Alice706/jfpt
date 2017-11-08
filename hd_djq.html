@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>商家服务</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <script src='js/jquery.min.js'></script>
+    <style>
+    .w28 {
+        width: 28%;
+        box-sizing: border-box;
+    }
+
+    .djq {
+        margin: 65px 0;
+        min-width: 1224px;
+    }
+
+    .djq .w28 {
+        height: 166px;
+        background: url(images/djq1.png) no-repeat;
+        -webkit-background-size: 100%;
+        background-size: 100%;
+        margin-right: 8%;
+        margin-bottom: 38px;
+        font-size: 14px;
+        cursor: pointer;
+        color: #ff1d47;
+        padding: 29px 12px 14px 12px;
+        position: relative;
+        overflow: hidden;
+        transition: all .4s;
+    }
+
+    .djq .w28:hover {
+        transform: translateY(-10px);
+        box-shadow: 0px 0px 15px 1px #dde0e1;
+    }
+
+    .djq .w28:nth-child(3n) {
+        margin-right: 0;
+    }
+
+    .djq .s_old {
+        background: url(images/djq2.png) no-repeat;
+        -webkit-background-size: 100%;
+        background-size: 100%;
+        color: #bababa;
+    }
+
+    .s_old .djq_bot {
+        font-size: 24px;
+        text-align: center;
+        font-weight: 700;
+        position: absolute;
+        bottom: 8px;
+    }
+
+    .t_fl {
+        font-size: 24px;
+        margin-right: 10px;
+        position: relative;
+        top: -17px;
+        left: 9px;
+    }
+
+    .t_fl span {
+        font-size: 76px;
+        font-weight: 700;
+        position: relative;
+        left: -10px;
+    }
+
+    .s_tit {
+        font-size: 22px;
+    }
+
+    .djq_bot {
+        color: #fff;
+        position: absolute;
+        bottom: 14px;
+        width: 100%;
+    }
+
+    .djq_bot span {
+        margin-right: 24px;
+    }
+    /*弹窗*/
+
+    .lq_djq {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 999;
+        background-color: rgba(0, 0, 0, .3);
+        display: none;
+    }
+
+    .lq_djq .lq_tb {
+        background-color: #fff;
+        width: 648px;
+        height: 711px;
+        margin: 0 auto;
+        border-radius: 6px;
+        position: relative;
+        padding: 45px 52px 34px 52px;
+        box-sizing: border-box;
+        font-size: 14px;
+        top: 158px;
+    }
+
+    .lq_close {
+        position: absolute;
+        right: 14px;
+        top: 10px;
+        cursor: pointer;
+        width: 28px;
+        height: 28px;
+        background: url(images/sprit.png) no-repeat -9px -11px;
+    }
+
+    .lq_tb h2,
+    .lq_tb h3 {
+        color: #4a4a4a;
+        font-size: 14px;
+    }
+
+    .lq_tb h2 {
+        font-weight: 700
+    }
+
+    .lq_tb h3 {
+        margin-bottom: 26px;
+    }
+
+    .lq_tb h2 span,
+    .lq_tb p {
+        color: #a1a1a1;
+        font-weight: 400;
+    }
+
+    .lq_tb p {
+        margin-top: 6px;
+    }
+
+    .sj_img {
+        width: 122px;
+    }
+
+    .sj_img img {
+        width: 100%;
+        display: block;
+    }
+
+    .sj_detial {
+        margin-left: 138px;
+    }
+
+    .lq_tb .lq_red {
+        color: #ff1d47;
+    }
+
+    .lq_tb>ul>li {
+        padding: 17px 0;
+        border-bottom: 1px dashed #d1d1d1;
+    }
+
+    .lq_tb>ul>li li {
+        margin-top: 22px;
+    }
+
+    .lq_tb button {
+        display: block;
+        background-color: #21dccd;
+        color: #fff;
+        font-size: 18px;
+        border-radius: 25px;
+        padding: 12px 38px;
+        margin: 0 auto;
+        margin-top: 36px;
+        cursor: pointer;
+    }
+
+    .lq_djq .lq_tb .s_no {
+        background-color: #d6d6d6;
+    }
+    /*领券成功*/
+
+    .lc_success {
+        position: relative;
+        width: 648px;
+        height: 711px;
+        border-radius: 6px;
+        margin: 0 auto;
+        background-color: #fff;
+        top: 158px;
+        z-index: 999;
+        display: none;
+        box-sizing: border-box;
+    }
+
+    .auto_scroll {
+        height: 240px;
+        overflow: auto;
+    }
+    /* 设置滚动条的样式 */
+
+    .auto_scroll::-webkit-scrollbar {
+        width: 12px;
+    }
+    /* 滚动槽 */
+
+    .auto_scroll::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        border-radius: 10px;
+    }
+    /* 滚动条滑块 */
+
+    .auto_scroll::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background: rgba(0, 0, 0, 0.1);
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+    }
+
+    .auto_scroll::-webkit-scrollbar-thumb:window-inactive {
+        background: rgba(255, 0, 0, 0.4);
+    }
+
+    .lc_success {
+        text-align: center;
+        padding-top: 42px;
+        font-size: 14px;
+        color: #a1a1a1;
+    }
+
+    .see_yhq {
+        width: 146px;
+        height: 40px;
+        background-color: #fff;
+        color: #21dccd;
+        border-radius: 25px;
+        margin-top: 42px;
+        border: 1px solid #21dccd;
+        cursor: pointer;
+        font-size: 14px;
+    }
+
+    .lc_success .succ {
+        color: #4a4a4a;
+        margin: 10px 0;
+        font-size: 18px;
+    }
+
+    .auto_scroll {
+        position: relative;
+    }
+    </style>
+</head>
+
+<body>
+    <!-- 头部 -->
+    <div class="jf_nav">
+        <div class="w1224 clearfix">
+            <div class="nav_left">
+                <img src="images/xy_logo.png" alt="">
+                <div class="xy_tit">
+                    <p class='sq'>社区信用积分平台</p>
+                    <p>www.xinyong.com</p>
+                </div>
+            </div>
+            <div class="nav_cen">
+                <ul class='clearfix'>
+                    <li class='fl active_nav choic_fw'><a href="#">首页</a></li>
+                    <li class='fl '><a href="#">积分商城</a></li>
+                    <li class='fl'><a href="#">商家服务</a></li>
+                    <li class='fl'><a href="#">便民租聘</a></li>
+                    <li class='fl'><a href="#">图书预定</a></li>
+                    <li class='fl'><a href="#">志愿者申请</a></li>
+                </ul>
+            </div>
+            <div class="nav_right">
+                <p class='fr'> <a href="#"><i class='head_log'></i>登陆/注册</a></p>
+                <p class='fr'><a href="#"><i class='head_car'></i>购物车</a></p>
+            </div>
+        </div>
+    </div>
+    <!-- 代金券 -->
+    <div class="djq">
+        <div class="w1224">
+            <ul class='clearfix'>
+                <li class='fl w28'>
+                    <div class="djq_top clearfix">
+                        <div class="t_fl fl">
+                            <i>￥</i><span>100</span>
+                        </div>
+                        <div class="t_fr fl">
+                            <ul class='clearfix'>
+                                <li class='s_tit'>代金券</li>
+                                <li class='s_jf'>所需积分: <span>100</span></li>
+                                <li class='s_sate'>有效日期: <span>12.10-12.31</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="djq_bot">
+                        <p>适用商家：A店、B店、C店、D店 <span class='fr'>剩余：21张</span></p>
+                    </div>
+                </li>
+                <li class='fl w28'>
+                    <div class="djq_top clearfix">
+                        <div class="t_fl fl">
+                            <i>￥</i><span>100</span>
+                        </div>
+                        <div class="t_fr fl">
+                            <ul class='clearfix'>
+                                <li class='s_tit'>代金券</li>
+                                <li class='s_jf'>所需积分: <span>100</span></li>
+                                <li class='s_sate'>有效日期: <span>12.10-12.31</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="djq_bot">
+                        <p>适用商家：A店、B店、C店、D店 <span class='fr'>剩余：21张</span></p>
+                    </div>
+                </li>
+                <li class='fl w28 s_old'>
+                    <div class="djq_top clearfix">
+                        <div class="t_fl fl">
+                            <i>￥</i><span>100</span>
+                        </div>
+                        <div class="t_fr fl">
+                            <ul class='clearfix'>
+                                <li class='s_tit'>代金券</li>
+                                <li class='s_jf'>所需积分: <span>100</span></li>
+                                <li class='s_sate'>有效日期: <span>12.10-12.31</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="djq_bot">
+                        <p>已过期</p>
+                    </div>
+                </li>
+                <li class='fl w28'>
+                    <div class="djq_top clearfix">
+                        <div class="t_fl fl">
+                            <i>￥</i><span>100</span>
+                        </div>
+                        <div class="t_fr fl">
+                            <ul class='clearfix'>
+                                <li class='s_tit'>代金券</li>
+                                <li class='s_jf'>所需积分: <span>100</span></li>
+                                <li class='s_sate'>有效日期: <span>12.10-12.31</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="djq_bot">
+                        <p>适用商家：A店、B店、C店、D店 <span class='fr'>剩余：21张</span></p>
+                    </div>
+                </li>
+                <li class='fl w28 s_old'>
+                    <div class="djq_top clearfix">
+                        <div class="t_fl fl">
+                            <i>￥</i><span>100</span>
+                        </div>
+                        <div class="t_fr fl">
+                            <ul class='clearfix'>
+                                <li class='s_tit'>代金券</li>
+                                <li class='s_jf'>所需积分: <span>100</span></li>
+                                <li class='s_sate'>有效日期: <span>12.10-12.31</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="djq_bot">
+                        <p>已过期</p>
+                    </div>
+                </li>
+                <li class='fl w28'>
+                    <div class="djq_top clearfix">
+                        <div class="t_fl fl">
+                            <i>￥</i><span>100</span>
+                        </div>
+                        <div class="t_fr fl">
+                            <ul class='clearfix'>
+                                <li class='s_tit'>代金券</li>
+                                <li class='s_jf'>所需积分: <span>100</span></li>
+                                <li class='s_sate'>有效日期: <span>12.10-12.31</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="djq_bot">
+                        <p>已过期</p>
+                    </div>
+                </li>
+                <li class='fl w28 s_old'>
+                    <div class="djq_top clearfix">
+                        <div class="t_fl fl">
+                            <i>￥</i><span>100</span>
+                        </div>
+                        <div class="t_fr fl">
+                            <ul class='clearfix'>
+                                <li class='s_tit'>代金券</li>
+                                <li class='s_jf'>所需积分: <span>100</span></li>
+                                <li class='s_sate'>有效日期: <span>12.10-12.31</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="djq_bot">
+                        <p>已过期</p>
+                    </div>
+                </li>
+                <li class='fl w28'>
+                    <div class="djq_top clearfix">
+                        <div class="t_fl fl">
+                            <i>￥</i><span>100</span>
+                        </div>
+                        <div class="t_fr fl">
+                            <ul class='clearfix'>
+                                <li class='s_tit'>代金券</li>
+                                <li class='s_jf'>所需积分: <span>100</span></li>
+                                <li class='s_sate'>有效日期: <span>12.10-12.31</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="djq_bot">
+                        <p>已过期</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- 弹窗 -->
+    <div class="lq_djq">
+        <!-- 领券 -->
+        <div class="lq_tb">
+            <div class="lq_close"></div>
+            <ul>
+                <li>
+                    <h2>优惠金额<span class='fr lq_red'>100 元</span></h2>
+                </li>
+                <li>
+                    <h2>所需信用积分<span class='fr'>100</span></h2></li>
+                <li>
+                    <h2>优惠券有效日期<span class='fr'>2017.12.10-1017.12.31</span></h2></li>
+                <li>
+                    <h2>优惠券说明<p>本券只作为该活动的指定商品，不得随意出售，不得假冒，用于资金转换者违法必究。切用且珍惜</p></h2></li>
+                <li class='able_user'>
+                    <h2>适用商家</h2>
+                    <div class="auto_scroll">
+                        <ul>
+                            <li class='clearfix'>
+                                <div class="sj_img fl">
+                                    <img src="images/tc1.png" alt="">
+                                </div>
+                                <div class="sj_detial">
+                                    <h3>大食堂（周园店）</h3>
+                                    <p>地址：周元路1489弄 康泰大厦 F1-102</p>
+                                    <p>交通地址：周康1路 龙大专线（花木路下）</p>
+                                </div>
+                            </li>
+                            <li class='clearfix'>
+                                <div class="sj_img fl">
+                                    <img src="images/tc2.png" alt="">
+                                </div>
+                                <div class="sj_detial">
+                                    <h3>大食堂（周园店）</h3>
+                                    <p>地址：周元路1489弄 康泰大厦 F1-102</p>
+                                    <p>交通地址：周康1路 龙大专线（花木路下）</p>
+                                </div>
+                            </li>
+                            <li class='clearfix'>
+                                <div class="sj_img fl">
+                                    <img src="images/tc2.png" alt="">
+                                </div>
+                                <div class="sj_detial">
+                                    <h3>大食堂（周园店）</h3>
+                                    <p>地址：周元路1489弄 康泰大厦 F1-102</p>
+                                    <p>交通地址：周康1路 龙大专线（花木路下）</p>
+                                </div>
+                            </li>
+                            <li class='clearfix'>
+                                <div class="sj_img fl">
+                                    <img src="images/tc1.png" alt="">
+                                </div>
+                                <div class="sj_detial">
+                                    <h3>大食堂（周园店）</h3>
+                                    <p>地址：周元路1489弄 康泰大厦 F1-102</p>
+                                    <p>交通地址：周康1路 龙大专线（花木路下）</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+            <button>领取代金券</button>
+        </div>
+        <!-- 领取成功 -->
+        <div class="lc_success">
+            <div class="lq_close"></div>
+            <p><img src="images/success.png" alt=""></p>
+            <p class='succ'>领取成功</p>
+            <p>我们的客服将会尽快为您送达</p>
+            <button class='see_yhq'>查看优惠券</button>
+        </div>
+    </div>
+    <!-- 底部 -->
+    <div class="jf_footer">
+        <div class="w1224 clearfix">
+            <div class="footer_fl">
+                <dl class='fl'>
+                    <dt>千声科技</dt>
+                    <dd><a href="#">智慧家园</a></dd>
+                    <dd><a href="#">智慧社区</a></dd>
+                    <dd><a href="#">智慧管家</a></dd>
+                </dl>
+                <dl class='fl'>
+                    <dt>旗下产品</dt>
+                    <dd><a href="#">火箭兔</a></dd>
+                    <dd><a href="#">璞飞科技</a></dd>
+                </dl>
+                <dl class='fl'>
+                    <dt>交流合作</dt>
+                    <dd><a href="#">联系我们</a></dd>
+                    <dd><a href="#">合作咨询</a></dd>
+                </dl>
+                <dl class='fl'>
+                    <dt>关于我们</dt>
+                    <dd><a href="#">关于我们</a></dd>
+                    <dd><a href="#">加入我们</a></dd>
+                </dl>
+            </div>
+            <div class="footer_fr">
+                <img src="images/xy_logo.png" alt="">
+                <div class="xy_tit">
+                    <p class='sq'>社区信用积分平台</p>
+                    <p>www.xinyong.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>上海千声集团版权所有<span>备案号：沪ICP备14023477号</span></p>
+        </div>
+    </div>
+</body>
+<script src='js/header.js'></script>
+<script>
+// 点击弹窗事件
+$('.djq .w28').click(function() {
+
+    // 如果有s_old则控制按钮
+    if ($(this).hasClass('s_old')) {
+        $('.lq_tb button').addClass('s_no')
+        $('.lq_tb button').text('已过期')
+    } else {
+        $('.lq_tb button').removeClass('s_no')
+        $('.lq_tb button').text('领取优惠券')
+    }
+    $('.lq_djq').fadeIn(300);
+    $('.lq_tb').show();
+    $('.lc_success').hide();
+    $('.lc_success').css({
+        height: '711px',
+        width: '648px',
+        top: '158px'
+    })
+    // 让ul回到顶部
+    $('.auto_scroll').scrollTop(0)
+})
+$('.lq_close').click(function() {
+    $('.lq_djq').fadeOut(300);
+})
+// 领券弹窗
+$('.lq_tb button').click(function() {
+    if ($(this).hasClass('s_no')) {
+        return
+    }
+    $('.lc_success').show();
+    $('.lq_tb').hide();
+    $('.lc_success').animate({
+        height: '290px',
+        width: '508px',
+        top: '270px'
+
+    }, 600)
+})
+</script>
+
+</html>

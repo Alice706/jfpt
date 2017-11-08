@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>登陆注册</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/header.css">
+    <style>
+    /*导航*/
+
+    body {
+        background-color: #f3f3f3;
+    }
+    /*登录注册*/
+
+    .xy_login {
+        width: 335px;
+        height: 529px;
+        margin: 0 auto;
+        background-color: #fff;
+        border-radius: 6px;
+        margin-top: 46px;
+        padding: 28px 40px 0 40px;
+        color: #acacac;
+    }
+
+    .xy_login .log_nav .choic_nav {
+        color: #21dccd;
+        border-bottom: 2px solid #21dccd;
+        margin-bottom: 48px;
+    }
+
+    .xy_login .log_nav li {
+        padding: 10px 0;
+        width: 50%;
+        text-align: center;
+        border-bottom: 2px solid #acacac;
+        cursor: pointer;
+    }
+
+    .xy_login img {
+        cursor: pointer;
+    }
+
+    .xy_reg {
+        display: none;
+    }
+
+    .xy_log,
+    .xy_reg {
+        width: 100%;
+        padding: 0 10px;
+        box-sizing: border-box;
+    }
+
+    .xy_log input,
+    .xy_reg input {
+        width: 100%;
+        height: 48px;
+        text-indent: 50px;
+        margin-bottom: 30px;
+        border: 1px solid #ececec;
+        border-radius: 6px;
+    }
+
+    .xy_login .focus {
+        border: 1px solid #21dccd;
+        box-shadow: 0 0 4px #a8f9ef;
+    }
+
+    .log_list {
+        position: relative;
+    }
+
+    .log_list span {
+        position: absolute;
+        left: 14px;
+        top: 14px;
+    }
+
+    .log_list .lg_yzm {
+        width: 65%;
+    }
+
+    .ts_tit {
+        font-size: 14px;
+        color: #ff4800;
+        text-align: center;
+        width: 100%;
+        display: block;
+        position: relative;
+        top: -10px;
+        display: none;
+    }
+
+    .xy_log button,
+    .xy_reg button {
+        width: 100%;
+        color: #fff;
+        background-color: #21dccd;
+        border-radius: 5px;
+        font-size: 18px;
+        height: 50px;
+        cursor: pointer;
+    }
+
+    .xy_reg i {
+        position: absolute;
+        right: 10px;
+        top: 16px;
+        border-left: 1px solid #ececec;
+        padding-left: 8px;
+        font-size: 14px;
+        color: #21dccd;
+        cursor: pointer;
+        font-size: 12px;
+        z-index: 1;
+    }
+
+     :-moz-placeholder {
+        /* Mozilla Firefox 4 to 18 */
+        color: #acacac;
+        opacity: 1;
+    }
+
+     ::-moz-placeholder {
+        /* Mozilla Firefox 19+ */
+        color: #acacac;
+        opacity: 1;
+    }
+
+    input:-ms-input-placeholder {
+        color: #acacac;
+        opacity: 1;
+    }
+
+    input::-webkit-input-placeholder {
+        color: #acacac;
+        opacity: 1;
+    }
+
+    .xy_reg button {
+        margin-bottom: 0;
+    }
+
+    .xy_reg input[type='checkbox'] {
+        width: 13px;
+        height: 13px;
+        border: 1px solid #acacac;
+        position: relative;
+        top: 2px;
+    }
+
+    .xy_reg .agree {
+        margin: 20px 0;
+        text-align: center;
+        font-size: 14px;
+    }
+
+    .xy_reg .agree a {
+        color: #21dccd;
+        margin-left: 4px;
+    }
+
+    .xy_reg .mtk {
+        height: 50px;
+        width: 100px;
+        z-index: 99;
+        border: 0 none;
+        display: none;
+        top: 0;
+        right: 0;
+    }
+
+    .forget a {
+        color: #acacac;
+        border-bottom: 1px solid #acacac;
+        font-size: 14px;
+        margin-top: 6px;
+        display: inline-block;
+    }
+
+    .forget a:hover {
+        color: #21dccd;
+        border-bottom: 1px solid #21dccd;
+    }
+    .peo,.pass,.yzm {
+        width: 24px;
+        height: 24px;
+        display: inline-block;
+        background: url(images/sprit.png) no-repeat;
+    }
+    .peo {
+        background-position: -183px -61px;
+    }
+    .pass {
+        background-position: -139px -60px;
+    }
+    .yzm {
+        background-position: -16px -61px;
+    }
+    </style>
+</head>
+
+<body>
+    <!-- 头部 -->
+    <div class="jf_nav">
+        <div class="w1224 clearfix">
+            <div class="nav_left">
+                <img src="images/xy_logo.png" alt="">
+                <div class="xy_tit">
+                    <p class='sq'>社区信用积分平台</p>
+                    <p>www.xinyong.com</p>
+                </div>
+            </div>
+            <div class="nav_cen">
+                <ul class='clearfix'>
+                    <li class='fl active_nav choic_fw'><a href="plat_home.html">首页</a></li>
+                    <li class='fl '><a href="jf_market.html">积分商城</a></li>
+                    <li class='fl'><a href="hd_djq.html">商家服务</a></li>
+                    <li class='fl'><a href="#">便民租聘</a></li>
+                    <li class='fl'><a href="#">图书预定</a></li>
+                    <li class='fl'><a href="hd_detial.html">志愿者申请</a></li>
+                </ul>
+            </div>
+            <div class="nav_right">
+                <p class='fr'> <a href="plat_login.html"><i class='head_log'></i>登陆/注册</a></p>
+                <p class='fr'><a href="shop_list.html"><i class='head_car'></i>购物车</a></p>
+            </div>
+        </div>
+    </div>
+    <!-- 登录注册 -->
+    <div class="xy_login">
+        <div class="log_nav">
+            <ul class='clearfix'>
+                <li class='fl choic_nav'>登录</li>
+                <li class='fl'>注册</li>
+            </ul>
+        </div>
+        <!-- 登录 -->
+        <div class="xy_log">
+            <form action="">
+                <div class='log_list'>
+                    <input type="text" placeholder="用户名" class='yhm tel'>
+                    <span class='peo'></span>
+                </div>
+                <div class='log_list'>
+                    <input type="password" placeholder="密码">
+                    <span class='pass'></span>
+                </div>
+                <div class='log_list'>
+                    <input type="text" placeholder="验证码" class='lg_yzm'>
+                    <span class='yzm'></span>
+                    <img src="images/yzm_img.png" alt="" class='fr'>
+                </div>
+                <span class='ts_tit'>您输入的手机号格式有误</span>
+                <button>登录</button>
+                <p class="forget"><a href="#">忘记密码</a></p>
+            </form>
+        </div>
+        <!-- 注册 -->
+        <div class="xy_reg">
+            <form action="">
+                <div class='log_list'>
+                    <input type="text" placeholder="用户名" class='yhm'>
+                    <span class='peo'></span>
+                </div>
+                <div class='log_list'>
+                    <input type="text" placeholder="短信验证码密码">
+                    <span class='yzm'></span>
+                    <i class='send'>发送验证码</i><i class="mtk"></i>
+                </div>
+                <div class='log_list'>
+                    <input type="password" placeholder="设置密码">
+                    <span class='pass'></span>
+                </div>
+                <div class='log_list'>
+                    <input type="password" placeholder="确认密码">
+                    <span class='pass'></span>
+                </div>
+                <span class='ts_tit'>您输入的手机号格式有误</span>
+                <button>登录</button>
+                <p class='agree'>
+                    <input type="checkbox"> 同意社区信用积分平台<span><a href="#">用户协议及隐私政策</a></span></p>
+            </form>
+        </div>
+    </div>
+    <script src='js/jquery.min.js'></script>
+    <script src='js/header.js'></script>
+    <script>
+    // 登录注册
+    $('.log_nav li').click(function() {
+        $(this).addClass('choic_nav').siblings().removeClass('choic_nav')
+        if ($(this).index() === 0) {
+            // $('.xy_log').show();
+            $('.xy_log').fadeIn(1000);
+            $('.xy_reg').hide();
+            $('.xy_log .yhm').addClass('tel')
+            $('.xy_reg .yhm').removeClass('tel');
+        } else {
+            $('.xy_log').hide();
+            $('.xy_reg').fadeIn(1000);
+            $('.xy_reg .yhm').addClass('tel')
+            $('.xy_log .yhm').removeClass('tel');
+        }
+    })
+    // input框获取焦点事件
+    $('.log_list input').focus(function() {
+        $(this).addClass('focus');  
+    })
+    $('.peo').siblings().focus(function () {
+    $(this).siblings('span').css('backgroundPosition','-184px -92px')
+    })
+    $('.pass').siblings().focus(function () {
+    $(this).siblings('span').css('backgroundPosition','-139px -91px')
+    })
+    $('.yzm').siblings().focus(function () {
+    $(this).siblings('span').css('backgroundPosition','-17px -88px')
+    })
+    // 失去焦点事件
+    $('.log_list input').blur(function() {
+        checkMobile()
+        $(this).removeClass('focus')
+    })
+
+    $('.peo').siblings().blur(function () {
+    $(this).siblings('span').css('backgroundPosition','-183px -61px')
+    })
+    $('.pass').siblings().blur(function () {
+    $(this).siblings('span').css('backgroundPosition','-139px -60px')
+    })
+    $('.yzm').siblings().blur(function () {
+    $(this).siblings('span').css('backgroundPosition','-17px -61px')
+    })
+
+    // 发送验证码
+    var setTimer;
+    $('.xy_reg i.send').click(function() {
+        clearInterval(setTimer)
+        $('.xy_reg .mtk').css('display', 'block');
+        var count = 60;
+        setTimer = setInterval(function() {
+            $('.xy_reg i').css('color', '#acacac');
+            count--;
+            $('.xy_reg i.send').text(count + 's后重新发送')
+            if (count <= 0) {
+                $('.xy_reg i').css('color', '#21dccd');
+                $('.xy_reg i.send').text('发送验证码')
+                $('.xy_reg .mtk').css('display', 'none');
+                clearInterval(setTimer)
+            }
+        }, 1000)
+    })
+    // 手机号验证
+    function checkMobile() {
+        var reg = /^1[3|4|5|7|8][0-9]{9}$/;
+        var sMobile = $('.tel').val();
+        if (!(reg.test(sMobile))) {
+            $('.ts_tit').css('display', 'block');
+            $('.ts_tit').focus();
+        } else {
+            $('.ts_tit').css('display', 'none')
+        }
+    }
+    </script>
+</body>
+
+</html>
